@@ -6,18 +6,40 @@
 
 body {
   min-height: 100vh;
-  background: radial-gradient(circle at center, #20152d, #08070c 70%);
-  color: white;
-  font-family: Arial, sans-serif;
   overflow: hidden;
+  font-family: Arial, sans-serif;
+  color: white;
+  background:
+    radial-gradient(circle at 50% 40%, #30203d 0%, #110c17 45%, #050507 100%);
 }
 
-.container {
+.background span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  opacity: .5;
+  animation: stars 5s infinite ease-in-out;
+}
+
+.background span:nth-child(1) { left: 10%; top: 15%; }
+.background span:nth-child(2) { left: 80%; top: 20%; animation-delay: 1s; }
+.background span:nth-child(3) { left: 30%; top: 70%; animation-delay: 2s; }
+.background span:nth-child(4) { left: 90%; top: 75%; animation-delay: .5s; }
+.background span:nth-child(5) { left: 15%; top: 50%; animation-delay: 1.5s; }
+.background span:nth-child(6) { left: 65%; top: 10%; animation-delay: 2.5s; }
+.background span:nth-child(7) { left: 50%; top: 80%; animation-delay: 3s; }
+.background span:nth-child(8) { left: 75%; top: 60%; animation-delay: 1.2s; }
+.background span:nth-child(9) { left: 40%; top: 25%; animation-delay: 2.2s; }
+.background span:nth-child(10) { left: 5%; top: 85%; animation-delay: .8s; }
+
+main {
   width: 100%;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   padding: 25px;
   text-align: center;
 }
@@ -25,122 +47,233 @@ body {
 .screen {
   display: none;
   width: 100%;
-  max-width: 420px;
-  animation: appear 0.7s ease;
+  max-width: 430px;
+  animation: screenIn .7s ease;
 }
 
 .screen.active {
   display: block;
 }
 
-.emoji {
+.tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 3px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 30px;
+  color: #aaa;
+  margin-bottom: 25px;
+}
+
+.icon {
   font-size: 70px;
   margin-bottom: 25px;
-  animation: float 2s infinite ease-in-out;
+}
+
+.floating {
+  animation: floating 2.5s infinite ease-in-out;
 }
 
 h1 {
-  font-size: 30px;
-  margin-bottom: 18px;
+  font-size: 31px;
+  margin-bottom: 17px;
+  letter-spacing: -.5px;
 }
 
 p {
-  color: #ddd;
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-.small {
-  font-size: 14px;
-  color: #999;
-  margin-top: 10px;
+  color: #c8c5ca;
+  font-size: 17px;
+  line-height: 1.7;
 }
 
 button {
-  margin-top: 35px;
-  padding: 15px 30px;
-  border: none;
+  border: 0;
+  margin-top: 32px;
+  padding: 15px 28px;
   border-radius: 50px;
   background: white;
-  color: #17121c;
-  font-size: 16px;
+  color: #151019;
+  font-size: 15px;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 0 25px rgba(255,255,255,0.15);
+  transition: .3s;
+  box-shadow: 0 10px 35px rgba(0,0,0,.35);
 }
 
 button:hover {
-  transform: scale(1.08);
+  transform: translateY(-3px) scale(1.03);
 }
 
-.envelope {
-  width: 130px;
-  height: 100px;
+button:active {
+  transform: scale(.96);
+}
+
+button span {
+  margin-left: 8px;
+}
+
+.progress {
+  margin-top: 30px;
+}
+
+.progress i {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin: 4px;
+  border-radius: 50%;
+  background: #777;
+}
+
+.progress i:first-child {
+  width: 18px;
+  border-radius: 10px;
+  background: white;
+}
+
+.hint,
+.tiny {
+  font-size: 13px;
+  color: #777;
+  margin-top: 12px;
+}
+
+
+/* ENVELOPE */
+
+.envelope-wrapper {
+  width: 180px;
+  height: 150px;
   margin: 0 auto 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 75px;
   cursor: pointer;
-  animation: pulse 1.7s infinite;
 }
+
+.envelope {
+  position: relative;
+  width: 145px;
+  height: 100px;
+  border-radius: 8px;
+  background: #eee;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  transition: .3s;
+}
+
+.envelope-wrapper:hover .envelope {
+  transform: translateY(-8px) rotate(-2deg);
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 72px solid transparent;
+  border-right: 72px solid transparent;
+  border-top: 55px solid #c9c2ca;
+  z-index: 3;
+  transform-origin: top;
+}
+
+.letter {
+  position: absolute;
+  left: 50%;
+  top: 35px;
+  transform: translateX(-50%);
+  font-size: 45px;
+  z-index: 2;
+}
+
+
+/* BOUQUET */
 
 .bouquet {
   position: relative;
   width: 280px;
-  height: 300px;
-  margin: 0 auto 20px;
-  animation: bouquetAppear 1.5s ease;
+  height: 270px;
+  margin: 0 auto 10px;
+  animation: bouquetIn 1.5s cubic-bezier(.17,.67,.3,1.3);
 }
 
 .flower {
   position: absolute;
-  font-size: 75px;
-  animation: flowerFloat 3s infinite ease-in-out;
+  font-size: 70px;
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,.3));
+  animation: flowerMove 3s infinite ease-in-out;
 }
 
-.flower1 {
-  left: 20px;
-  top: 90px;
+.f1 {
+  left: 10px;
+  top: 95px;
+  transform: rotate(-18deg);
 }
 
-.flower2 {
-  left: 85px;
-  top: 25px;
+.f2 {
+  left: 75px;
+  top: 20px;
   animation-delay: .3s;
 }
 
-.flower3 {
-  right: 20px;
-  top: 90px;
+.f3 {
+  right: 10px;
+  top: 95px;
   animation-delay: .6s;
 }
 
-.flower4 {
-  left: 55px;
-  top: 125px;
-  font-size: 60px;
+.f4 {
+  left: 48px;
+  top: 115px;
+  font-size: 62px;
   animation-delay: .9s;
 }
 
-.flower5 {
-  right: 55px;
-  top: 125px;
-  font-size: 60px;
+.f5 {
+  right: 48px;
+  top: 115px;
+  font-size: 62px;
   animation-delay: 1.2s;
 }
 
-.message {
-  font-size: 20px;
-  color: white;
-  margin-top: 10px;
+.f6 {
+  left: 105px;
+  top: 90px;
+  font-size: 65px;
+  animation-delay: 1.5s;
 }
 
-@keyframes appear {
+.paper {
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  transform: translateX(-50%);
+  font-size: 70px;
+  z-index: 5;
+}
+
+.sparkles {
+  font-size: 25px;
+  letter-spacing: 20px;
+  animation: sparkle 1.5s infinite alternate;
+  margin-bottom: 5px;
+}
+
+.heart {
+  margin-top: 20px;
+  font-size: 35px;
+  animation: heartbeat 1.4s infinite;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes screenIn {
   from {
     opacity: 0;
-    transform: translateY(25px) scale(0.95);
+    transform: translateY(25px) scale(.96);
   }
 
   to {
@@ -149,8 +282,8 @@ button:hover {
   }
 }
 
-@keyframes float {
-  0%, 100% {
+@keyframes floating {
+  0%,100% {
     transform: translateY(0);
   }
 
@@ -159,34 +292,77 @@ button:hover {
   }
 }
 
-@keyframes pulse {
-  0%, 100% {
+@keyframes stars {
+  0%,100% {
+    opacity: .2;
     transform: scale(1);
   }
 
   50% {
-    transform: scale(1.12);
+    opacity: 1;
+    transform: scale(1.8);
   }
 }
 
-@keyframes bouquetAppear {
-  from {
+@keyframes bouquetIn {
+  0% {
     opacity: 0;
-    transform: scale(0.3) translateY(80px);
+    transform: scale(.2) translateY(100px);
   }
 
-  to {
+  70% {
+    transform: scale(1.08) translateY(-5px);
+  }
+
+  100% {
     opacity: 1;
     transform: scale(1) translateY(0);
   }
 }
 
-@keyframes flowerFloat {
-  0%, 100% {
-    transform: translateY(0) rotate(-3deg);
+@keyframes flowerMove {
+  0%,100% {
+    margin-top: 0;
   }
 
   50% {
-    transform: translateY(-10px) rotate(3deg);
+    margin-top: -8px;
   }
 }
+
+@keyframes sparkle {
+  from {
+    opacity: .3;
+    transform: scale(.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes heartbeat {
+  0%,100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@media(max-width: 380px) {
+  h1 {
+    font-size: 27px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  .bouquet {
+    transform: scale(.85);
+    margin-bottom: -25px;
+  }
+    }
