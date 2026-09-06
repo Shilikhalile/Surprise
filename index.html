@@ -1,73 +1,144 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>One Little Surprise 💌</title>
+  <title>A Little Surprise</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div class="stars"></div>
+<div class="background">
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
 
-  <main class="container">
+<main>
 
-    <section class="screen active" id="screen1">
-      <div class="emoji">👀</div>
-      <h1>9bal ma tebda...</h1>
-      <p>Ma tkhafch, ma famech virus 😂</p>
-      <button onclick="nextScreen(2)">Nenzel? 😏</button>
-    </section>
+  <!-- SCREEN 1 -->
+  <section class="screen active" id="screen1">
+    <div class="icon floating">👀</div>
 
-    <section class="screen" id="screen2">
-      <div class="emoji">😂</div>
-      <h1>Behy...</h1>
-      <p>Tawa wallit fiha.</p>
-      <p class="small">Ama mazelt ma chofet chay 👀</p>
-      <button onclick="nextScreen(3)">Kammel 😏</button>
-    </section>
+    <div class="tag">PRIVATE MESSAGE</div>
 
-    <section class="screen" id="screen3">
-      <div class="emoji">🤫</div>
-      <h1>Houni...</h1>
-      <p>Kont bech na3mel 7aja serious...</p>
-      <p>ama ena zeda ma na3refch nkoun serious 😂</p>
-      <button onclick="nextScreen(4)">Chouf tawa 🎁</button>
-    </section>
+    <h1>Enti... ey enti 😭</h1>
 
-    <section class="screen" id="screen4">
-      <div class="envelope" onclick="openEnvelope()">
-        💌
+    <p>
+      3andi 7aja sghira n7eb nwarhalk.
+      <br>
+      Ama ma tkhafech 😂
+    </p>
+
+    <button onclick="nextScreen(2)">
+      Chnowa? <span>→</span>
+    </button>
+  </section>
+
+
+  <!-- SCREEN 2 -->
+  <section class="screen" id="screen2">
+
+    <div class="icon floating">🤨</div>
+
+    <h1>Hakka t7eb ta3ref?</h1>
+
+    <p>
+      Behy... ama enti elli اخترت تدخل 😂
+    </p>
+
+    <button onclick="nextScreen(3)">
+      Kammel 👀
+    </button>
+
+    <div class="progress">
+      <i></i><i></i><i></i><i></i>
+    </div>
+
+  </section>
+
+
+  <!-- SCREEN 3 -->
+  <section class="screen" id="screen3">
+
+    <div class="icon">🤫</div>
+
+    <h1>Okay...</h1>
+
+    <p>
+      Tawa focus.
+      <br>
+      El 7aja hedhi ma tet3awedch barcha.
+    </p>
+
+    <button onclick="nextScreen(4)">
+      Open the surprise 🎁
+    </button>
+
+  </section>
+
+
+  <!-- SCREEN 4 -->
+  <section class="screen" id="screen4">
+
+    <div class="envelope-wrapper" onclick="openEnvelope()">
+
+      <div class="envelope">
+        <div class="flap"></div>
+        <div class="letter">
+          💌
+        </div>
       </div>
 
-      <h1>Hedhi lik.</h1>
-      <p class="small">Touch the envelope 👆</p>
-    </section>
+    </div>
 
-    <section class="screen final" id="screen5">
+    <h1>Touch the envelope</h1>
 
-      <div class="bouquet">
-        <div class="flower flower1">🌹</div>
-        <div class="flower flower2">🌷</div>
-        <div class="flower flower3">🌹</div>
-        <div class="flower flower4">🌸</div>
-        <div class="flower flower5">🌷</div>
-      </div>
+    <p class="hint">
+      Ey, bidek... mazel تستنى؟ 😂
+    </p>
 
-      <h1>🌸</h1>
+  </section>
 
-      <p class="message">
-        Ma 3andich sabab mo3ayen...<br>
-        juste 7بيت نفرّحك chwaya ❤️
-      </p>
 
-      <p class="small">That's it. No hidden meaning 😂</p>
+  <!-- FINAL -->
+  <section class="screen final" id="screen5">
 
-    </section>
+    <div class="sparkles">✦ ✧ ✦</div>
 
-  </main>
+    <div class="bouquet">
 
-  <script src="script.js"></script>
+      <div class="flower f1">🌹</div>
+      <div class="flower f2">🌷</div>
+      <div class="flower f3">🌹</div>
+      <div class="flower f4">🌸</div>
+      <div class="flower f5">🌷</div>
+      <div class="flower f6">🌹</div>
+
+      <div class="paper">💐</div>
+
+    </div>
+
+    <h1>Hedhi lik. ❤️</h1>
+
+    <p class="final-message">
+      Ma famech raison kbira...
+      <br>
+      juste 7بيت نفرّحك chwaya.
+    </p>
+
+    <div class="heart">♡</div>
+
+    <p class="tiny">
+      That's your surprise. Don't overthink it 😂
+    </p>
+
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+
 </body>
 </html>
