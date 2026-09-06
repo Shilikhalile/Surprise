@@ -1,43 +1,64 @@
 function nextScreen(number) {
+
   document.querySelectorAll(".screen").forEach(screen => {
     screen.classList.remove("active");
   });
 
-  document.getElementById("screen" + number).classList.add("active");
+  const next = document.getElementById("screen" + number);
+
+  next.classList.add("active");
 }
+
 
 function openEnvelope() {
-  nextScreen(5);
 
-  createHearts();
+  const envelope = document.querySelector(".envelope");
+
+  envelope.style.transform = "translateY(-10px) scale(1.08)";
+
+  setTimeout(() => {
+
+    nextScreen(5);
+
+    createConfetti();
+
+  }, 500);
 }
 
-function createHearts() {
-  for (let i = 0; i < 25; i++) {
 
-    const heart = document.createElement("div");
+function createConfetti() {
 
-    heart.innerHTML = ["❤️", "💗", "✨", "🌸"][Math.floor(Math.random() * 4)];
+  const symbols = ["❤️", "✨", "🌸", "💗", "✦"];
 
-    heart.style.position = "fixed";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.bottom = "-30px";
-    heart.style.fontSize = (15 + Math.random() * 25) + "px";
-    heart.style.zIndex = "10";
-    heart.style.pointerEvents = "none";
+  for (let i = 0; i < 35; i++) {
 
-    document.body.appendChild(heart);
+    const item = document.createElement("div");
 
-    const duration = 3 + Math.random() * 3;
+    item.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
 
-    heart.animate(
+    item.style.position = "fixed";
+    item.style.left = Math.random() * 100 + "vw";
+    item.style.bottom = "-30px";
+    item.style.fontSize =
+      (12 + Math.random() * 22) + "px";
+
+    item.style.zIndex = "100";
+    item.style.pointerEvents = "none";
+
+    document.body.appendChild(item);
+
+    const duration = 2.5 + Math.random() * 3;
+
+    item.animate(
       [
         {
           transform: "translateY(0) rotate(0deg)",
           opacity: 1
         },
         {
-          transform: `translateY(-110vh) rotate(${Math.random() * 360}deg)`,
+          transform:
+            `translateY(-110vh) rotate(${Math.random() * 500}deg)`,
           opacity: 0
         }
       ],
@@ -48,7 +69,7 @@ function createHearts() {
     );
 
     setTimeout(() => {
-      heart.remove();
+      item.remove();
     }, duration * 1000);
   }
 }
