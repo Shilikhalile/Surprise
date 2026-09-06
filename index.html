@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Little Surprise 💌</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="stars"></div>
+
+  <main class="container">
+
+    <section class="screen active" id="screen1">
+      <div class="emoji">👀</div>
+      <h1>9bal ma tebda...</h1>
+      <p>Ma tkhafch, ma famech virus 😂</p>
+      <button onclick="nextScreen(2)">Nenzel? 😏</button>
+    </section>
+
+    <section class="screen" id="screen2">
+      <div class="emoji">😂</div>
+      <h1>Behy...</h1>
+      <p>Tawa wallit fiha.</p>
+      <p class="small">Ama mazelt ma chofet chay 👀</p>
+      <button onclick="nextScreen(3)">Kammel 😏</button>
+    </section>
+
+    <section class="screen" id="screen3">
+      <div class="emoji">🤫</div>
+      <h1>Houni...</h1>
+      <p>Kont bech na3mel 7aja serious...</p>
+      <p>ama ena zeda ma na3refch nkoun serious 😂</p>
+      <button onclick="nextScreen(4)">Chouf tawa 🎁</button>
+    </section>
+
+    <section class="screen" id="screen4">
+      <div class="envelope" onclick="openEnvelope()">
+        💌
+      </div>
+
+      <h1>Hedhi lik.</h1>
+      <p class="small">Touch the envelope 👆</p>
+    </section>
+
+    <section class="screen final" id="screen5">
+
+      <div class="bouquet">
+        <div class="flower flower1">🌹</div>
+        <div class="flower flower2">🌷</div>
+        <div class="flower flower3">🌹</div>
+        <div class="flower flower4">🌸</div>
+        <div class="flower flower5">🌷</div>
+      </div>
+
+      <h1>🌸</h1>
+
+      <p class="message">
+        Ma 3andich sabab mo3ayen...<br>
+        juste 7بيت نفرّحك chwaya ❤️
+      </p>
+
+      <p class="small">That's it. No hidden meaning 😂</p>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
